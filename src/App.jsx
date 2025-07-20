@@ -134,7 +134,7 @@ function App() {
       {/* Header */}
       <header class="text-center mb-6">
         <h1 class="text-3xl font-bold mb-2 bg-gradient-to-r from-phasmo-red to-phasmo-accent bg-clip-text text-transparent">
-          Phasmophobia Item Unlock Roller
+          Phasmophobia Item Roller
         </h1>
         <p class="text-gray-300 text-sm">Unlock items through rolling</p>
       </header>
@@ -159,7 +159,7 @@ function App() {
 
       {/* Items Section */}
       <div>
-        <h2 class="text-xl font-bold text-phasmo-accent mb-4 text-center">Item Categories</h2>
+        {/*<h2 class="text-xl font-bold text-phasmo-accent mb-4 text-center">Item Categories</h2>*/}
         <div class="grid grid-cols-3 lg:grid-cols-5 gap-2">
           {Object.entries(items).map(([key, item], index) => {
             const isAllUnlocked = animatingItem()?.key === 'all-unlocked';

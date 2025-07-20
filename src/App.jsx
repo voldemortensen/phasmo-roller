@@ -2,7 +2,7 @@ import { createSignal, createEffect, Show } from 'solid-js';
 import { createStore } from 'solid-js/store';
 
 const ITEMS = {
-  'video-camera': { name: 'Video Camera', icon: '📹', unlocked: true },
+  'video-camera': { name: 'Video Camera', icon: '📹', unlocked: false },
   'head-gear': { name: 'Head Gear', icon: '🪖', unlocked: false },
   'sanity-meds': { name: 'Sanity Meds', icon: '💊', unlocked: false },
   'firelights': { name: 'Firelights', icon: '🔥', unlocked: false },
@@ -22,7 +22,7 @@ const ITEMS = {
   'salt': { name: 'Salt', icon: '🧂', unlocked: false },
   'smudges': { name: 'Smudges', icon: '🌿', unlocked: false },
   'sound-recorder': { name: 'Sound Recorder', icon: '🎙️', unlocked: false },
-  'photo-camera': { name: 'Photo Camera', icon: '📷', unlocked: false }
+  'photo-camera': { name: 'Photo Camera', icon: '📷', unlocked: true }
 };
 
 function App() {
@@ -51,8 +51,8 @@ function App() {
             }
           });
         }
-        // Ensure video camera stays unlocked
-        setItems('video-camera', 'unlocked', true);
+        // Ensure photo camera stays unlocked
+        setItems('photo-camera', 'unlocked', true);
       } catch (error) {
         console.error('Error loading saved data:', error);
       }
@@ -76,8 +76,8 @@ function App() {
   };
 
   const handleItemClick = (itemKey, item) => {
-    // Don't allow video camera to be locked
-    if (itemKey === 'video-camera') return;
+    // Don't allow photo camera to be locked
+    if (itemKey === 'photo-camera') return;
     
     // Toggle the unlocked state
     setItems(itemKey, 'unlocked', !item.unlocked);
@@ -109,9 +109,9 @@ function App() {
   };
 
   const resetProgress = () => {
-    // Reset all items to locked except video camera
+    // Reset all items to locked except photo camera
     Object.keys(items).forEach(key => {
-      if (key !== 'video-camera') {
+      if (key !== 'photo-camera') {
         setItems(key, 'unlocked', false);
       }
     });

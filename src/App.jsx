@@ -146,7 +146,7 @@ function App() {
           class="bg-gradient-to-r from-phasmo-red to-red-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-transform shadow-lg text-lg"
         >
           <span class="text-xl">🎲</span>
-          Roll for Item
+          Roll
         </button>
         <button 
           onClick={resetProgress}
